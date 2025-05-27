@@ -1044,19 +1044,8 @@ nav a:hover {
     }
 
     nav {
-        position: fixed;
-        top: 20px;
-        left: 20px; /* Changed from center alignment */
-        transform: none; /* Removed translateX(-50%) */
-        padding: 15px 20px;
-        width: auto;
-        background: rgba(15, 23, 42, 0.3);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(59, 130, 246, 0.2);
-        border-radius: 50px;
-        display: flex;
-        justify-content: flex-start; /* Changed from center */
-        align-items: center;
+        padding: 12px 15px;
+        width: calc(100% - 30px);
     }
 
     nav ul {
