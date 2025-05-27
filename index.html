@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Software Developer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul id="navMenu">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#research" class="nav-link">Research</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section active">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="greeting">Hello, I'm</span>
+                        <span class="name">Sandipan Saha</span>
+                        <span class="role">Software Engineer</span>
+                    </h1>
+                    <p class="hero-description">
+                        Crafting innovative digital solutions with cutting-edge technologies.
+                        Passionate about creating seamless user experiences and robust backend systems.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary" onclick="scrollToSection('projects')">
+                            View My Work
+                        </button>
+                        <button class="btn-secondary" onclick="scrollToSection('contact')">
+                            Get In Touch
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="code-window">
+                        <div class="window-header">
+                            <div class="window-controls">
+                                <span class="control red"></span>
+                                <span class="control yellow"></span>
+                                <span class="control green"></span>
+                            </div>
+                            <span class="window-title">main.js</span>
+                        </div>
+                        <div class="code-content">
+                            <div class="code-line"><span class="keyword">const</span> <span class="variable">developer</span> = {</div>
+                            <div class="code-line">  <span class="property">name</span>: <span class="string">'Sandipan'</span>,</div>
+                            <div class="code-line">  <span class="property">skills</span>: [<span class="string">'Python'</span>, <span class="string">'JavaScript'</span>, <span class="string">'React'</span><span class="string">'HTML/CSS'</span>, <span class="string">'OpenCV'</span>, <span class="string">'Arduino'</span>, <span class="string">'MySQL'</span>, <span class="string">'Firebase'</span>, <span class="string">'MongoDB'</span>, <span class="string">'Figma'</span>, <span class="string">'Photoshop'</span>],</div>
+                            <div class="code-line">  <span class="property">passion</span>: <span class="string">'Crafting seamless experiences that turn ideas into elegant, powerful apps.'</span></div>
+                            <div class="code-line">};</div>
+                        </div>
+                        <div class="code-content">
+                            <div class="code-line"><span class="keyword">const</span> <span class="variable">producer</span> = {</div>
+                            <div class="code-line">  <span class="property">name</span>: <span class="string">'Sandipan'</span>,</div>
+                            <div class="code-line">  <span class="property">skills</span>: [<span class="string">'Cubase'</span>, <span class="string">'FL Studio'</span>, <span class="string">'Ableton'</span>, <span class="string">'Adobe Audition'</span>, <span class="string">'Caliope'</span>],</div>
+                            <div class="code-line">  <span class="property">passion</span>: <span class="string">'Producing captivating music and delivering mixes that shine with crystal-clear precision.'</span></div>
+                            <div class="code-line">};</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="glass-card">
+                        <h3>Who I Am</h3>
+                        <p>I tackle tech troubles like brain teasers, solving them with speed and a spark of ingenuity.
+                            From critical thinking to cool-headed fixes — whether it's debugging code or mixing sound — I turn chaos into clean code, crisp audio, and challenges into chances.</p>
+
+                        <h3>What I Do</h3>
+                        <p>I specialize in full-stack development and OpenCV, crafting elegant, scalable solutions with modern JavaScript frameworks, cloud-native technologies, and smart IoT integrations — all grounded in clean, purposeful code.
+                            Beside crafting sleek interfaces or crafting soundscapes, I fine-tune sound through mixing and mastering, blending technical precision with creative flair.</p>
+
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h4>Frontend</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">HTML/CSS</span>
+                                    <span class="skill-tag">React</span>
+                                    <span class="skill-tag">Tkinter</span>
+                                    <span class="skill-tag">WPF</span>
+                                </div>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Backend</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Firebase</span>
+                                    <span class="skill-tag">Python</span>
+                                    <span class="skill-tag">MySQL</span>
+                                    <span class="skill-tag">MongoDB</span>
+                                    <span class="skill-tag">Node.js</span>
+                                </div>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Cloud, Computer Vision & IoT</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">AWS</span>
+                                    <span class="skill-tag">GCP</span>
+                                    <span class="skill-tag">Azure</span>
+                                    <span class="skill-tag">SAP</span>
+                                    <span class="skill-tag">Docker</span>
+                                    <span class="skill-tag">OpenCV</span>
+                                    <span class="skill-tag">Arduino</span>
+                                    <span class="skill-tag">Raspberry Pi</span>
+                                    <span class="skill-tag">Beagle Bone</span>
+
+                                </div>
+                            </div>
+                                <div class="skill-category">
+                                <h4>Design & Analytics</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Figma</span>
+                                    <span class="skill-tag">Adobe Photoshop</span>
+                                    <span class="skill-tag">Adobe Audition</span>
+                                    <span class="skill-tag">Cubase</span>
+                                    <span class="skill-tag">PowerBI</span>
+                                    <span class="skill-tag">Tableau</span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="timeline-date">2022 - Present</div>
+                        <h3>Senior Software Engineer</h3>
+                        <h4>TechCorp Solutions</h4>
+                        <p>Led a team of 5 developers in building a microservices architecture that improved system performance by 40%. Implemented CI/CD pipelines and migrated legacy applications to cloud infrastructure.</p>
+                        <div class="tech-stack">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>AWS</span>
+                            <span>Docker</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="timeline-date">2020 - 2022</div>
+                        <h3>Full Stack Developer</h3>
+                        <h4>StartupXYZ</h4>
+                        <p>Developed and maintained multiple web applications serving 100K+ users. Built responsive frontend interfaces and RESTful APIs. Collaborated with design team to implement pixel-perfect UI components.</p>
+                        <div class="tech-stack">
+                            <span>Vue.js</span>
+                            <span>Python</span>
+                            <span>PostgreSQL</span>
+                            <span>Redis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="timeline-date">2019 - 2020</div>
+                        <h3>Junior Developer</h3>
+                        <h4>WebDev Agency</h4>
+                        <p>Started my professional journey building websites and web applications for small to medium businesses. Gained experience in various technologies and learned best practices in software development.</p>
+                        <div class="tech-stack">
+                            <span>JavaScript</span>
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                            <span>WordPress</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card glass-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <div class="project-icon">🚀</div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>E-Commerce Platform</h3>
+                        <p>A full-featured e-commerce solution with real-time inventory management, payment processing, and admin dashboard. Built with modern tech stack for scalability.</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                            <span>Stripe</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">Live Demo</a>
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card glass-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <div class="project-icon">📱</div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Task Management App</h3>
+                        <p>A collaborative project management tool with real-time updates, file sharing, and team communication features. Supports multiple project templates and workflows.</p>
+                        <div class="project-tech">
+                            <span>Vue.js</span>
+                            <span>Express</span>
+                            <span>Socket.io</span>
+                            <span>PostgreSQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">Live Demo</a>
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card glass-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <div class="project-icon">🤖</div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>AI Analytics Dashboard</h3>
+                        <p>An intelligent dashboard that provides insights from complex datasets using machine learning algorithms. Features interactive visualizations and predictive analytics.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>FastAPI</span>
+                            <span>TensorFlow</span>
+                            <span>D3.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">Live Demo</a>
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="section">
+        <div class="container">
+            <h2 class="section-title">Research & Publications</h2>
+            <div class="research-content">
+                <div class="research-item glass-card">
+                    <div class="research-header">
+                        <h3>Machine Learning in Web Performance Optimization</h3>
+                        <span class="research-date">2023</span>
+                    </div>
+                    <p class="research-abstract">
+                        Investigated the application of machine learning algorithms to automatically optimize web application performance.
+                        The study resulted in a 35% improvement in loading times across various metrics.
+                    </p>
+                    <div class="research-details">
+                        <div class="research-tags">
+                            <span>Machine Learning</span>
+                            <span>Web Performance</span>
+                            <span>Optimization</span>
+                        </div>
+                        <a href="#" class="research-link">Read Paper</a>
+                    </div>
+                </div>
+
+                <div class="research-item glass-card">
+                    <div class="research-header">
+                        <h3>Scalable Microservices Architecture Patterns</h3>
+                        <span class="research-date">2022</span>
+                    </div>
+                    <p class="research-abstract">
+                        Comprehensive analysis of microservices design patterns and their impact on system scalability.
+                        Proposed new patterns for handling distributed transactions and inter-service communication.
+                    </p>
+                    <div class="research-details">
+                        <div class="research-tags">
+                            <span>Microservices</span>
+                            <span>Architecture</span>
+                            <span>Scalability</span>
+                        </div>
+                        <a href="#" class="research-link">Read Paper</a>
+                    </div>
+                </div>
+
+                <div class="research-item glass-card">
+                    <div class="research-header">
+                        <h3>Security Vulnerabilities in Modern Web Applications</h3>
+                        <span class="research-date">2021</span>
+                    </div>
+                    <p class="research-abstract">
+                        Systematic review of common security vulnerabilities in contemporary web applications and proposed
+                        automated detection methods using static code analysis.
+                    </p>
+                    <div class="research-details">
+                        <div class="research-tags">
+                            <span>Web Security</span>
+                            <span>Vulnerability Assessment</span>
+                            <span>Static Analysis</span>
+                        </div>
+                        <a href="#" class="research-link">Read Paper</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="glass-card">
+                        <h3>Let's Connect</h3>
+                        <p>I'm always interested in new opportunities and exciting projects. Whether you want to discuss a potential collaboration or just say hello, feel free to reach out!</p>
+
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="contact-icon">📧</div>
+                                <div class="contact-details">
+                                    <span class="contact-label">Email</span>
+                                    <span class="contact-value">sandipan.saha2001@gmail.com</span>
+                                </div>
+                            </div>
+
+                            <div class="contact-method">
+                                <div class="contact-icon">💼</div>
+                                <div class="contact-details">
+                                    <span class="contact-label">LinkedIn</span>
+                                    <span class="contact-value">linkedin.com/in/alexdev</span>
+                                </div>
+                            </div>
+
+                            <div class="contact-method">
+                                <div class="contact-icon">🐙</div>
+                                <div class="contact-details">
+                                    <span class="contact-label">GitHub</span>
+                                    <span class="contact-value">github.com/alexdev</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <form class="contact-form glass-card" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required>
+                            <label for="name">Your Name</label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email">Your Email</label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" required>
+                            <label for="subject">Subject</label>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <label for="message">Your Message</label>
+                        </div>
+
+                        <button type="submit" class="btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
