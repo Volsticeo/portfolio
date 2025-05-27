@@ -879,7 +879,7 @@ nav a:hover {
     transform: rotate(-45deg) translate(7px, -6px);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1080px) {
     nav {
         position: fixed;
         top: 20px;
