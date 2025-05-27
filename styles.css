@@ -881,34 +881,41 @@ nav a:hover {
 
 @media (max-width: 768px) {
     nav {
+        position: fixed;
+        top: 20px;
+        left: 20px; /* Changed from center alignment */
+        transform: none; /* Removed translateX(-50%) */
         padding: 15px 20px;
-        width: calc(100% - 40px);
-        max-width: none;
-        justify-content: space-between;
+        width: auto;
+        background: rgba(15, 23, 42, 0.3);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        border-radius: 50px;
         display: flex;
+        justify-content: flex-start; /* Changed from center */
         align-items: center;
-        background: transparent;
-        border: none;
-        backdrop-filter: none;
     }
 
     nav:hover {
-        background: transparent;
-        border: none;
+        background: rgba(15, 23, 42, 0.3); /* Keep background on hover */
+        border: 1px solid rgba(59, 130, 246, 0.2); /* Keep border */
         box-shadow: none;
-        transform: translateX(-50%);
+        transform: none; /* Remove transform */
+        backdrop-filter: blur(20px); /* Keep backdrop filter */
     }
 
     .hamburger {
         display: flex;
+        position: relative;
+        z-index: 1001;
     }
 
     nav ul {
         position: fixed;
         top: 80px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: calc(100% - 40px);
+        left: 20px; /* Align with nav position */
+        transform: none; /* Remove center transform */
+        width: calc(100vw - 40px); /* Full width minus margins */
         max-width: 400px;
         background: rgba(15, 23, 42, 0.95);
         backdrop-filter: blur(20px);
@@ -919,14 +926,15 @@ nav a:hover {
         padding: 20px 0;
         opacity: 0;
         visibility: hidden;
-        transform: translateX(-50%) translateY(-20px);
+        transform: translateY(-20px); /* Only vertical transform */
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
     }
 
     nav ul.active {
         opacity: 1;
         visibility: visible;
-        transform: translateX(-50%) translateY(0);
+        transform: translateY(0); /* Only vertical transform */
     }
 
     nav li {
