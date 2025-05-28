@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initializeScrollEffects();
     initializeParticleBackground();
     initializeTypewriterEffect();
+    initializeMouseTrail();
 });
 
 // Navigation System
@@ -489,6 +490,47 @@ document.addEventListener('click', (e) => {
     }
 });
 
+// Make project cards clickable
+document.addEventListener('DOMContentLoaded', function() {
+    const projectCards = document.querySelectorAll('.project-card');
+
+    projectCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            // Don't trigger if clicking on the GitHub link itself
+            if (e.target.classList.contains('project-link')) {
+                return;
+            }
+
+            const githubLink = card.querySelector('.project-link[href*="github"]');
+            if (githubLink) {
+                window.open(githubLink.href, '_blank');
+            }
+        });
+    });
+});
+
+// Make research cards clickable
+document.addEventListener('DOMContentLoaded', function() {
+    const researchCards = document.querySelectorAll('.research-item');
+
+    researchCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            // Don't trigger if clicking on the research link itself
+            if (e.target.classList.contains('research-link')) {
+                return;
+            }
+
+            const researchLink = card.querySelector('.research-link');
+            if (researchLink) {
+                window.open(researchLink.href, '_blank');
+            }
+        });
+
+        // Add cursor pointer and hover effect
+        card.style.cursor = 'pointer';
+    });
+});
+
 // Advanced Scroll Animations
 function initializeAdvancedScrollAnimations() {
     // Smooth reveal animations for sections
@@ -706,57 +748,153 @@ function showLoadingAnimation() {
 }
 
 // Mouse Trail Effect
+// Replace the existing mouse trail initialization with this updated version
+
 function initializeMouseTrail() {
     const trail = [];
-    const trailLength = 20;
+    const trailLength = 12;
+    let isHovering = false;
+    let currentHoveredElement = null;
+    let isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
+    // Don't show cursor on touch devices
+    if (isTouchDevice) return;
+
+    // Create main cursor
+    const mainCursor = document.createElement('div');
+    mainCursor.className = 'main-cursor';
+    mainCursor.style.cssText = `
+        position: fixed;
+        width: 12px;
+        height: 12px;
+        background: #3b82f6;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        mix-blend-mode: difference;
+        transition: all 0.2s ease;
+        transform: translate(-50%, -50%);
+    `;
+    document.body.appendChild(mainCursor);
+
+    // Create trail dots
     for (let i = 0; i < trailLength; i++) {
         const dot = document.createElement('div');
         dot.className = 'mouse-trail-dot';
+        const size = Math.max(2, 8 - i * 0.5);
+        const opacity = Math.max(0.1, 0.8 - (i / trailLength) * 0.7);
+
         dot.style.cssText = `
             position: fixed;
-            width: 4px;
-            height: 4px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.8), transparent);
+            width: ${size}px;
+            height: ${size}px;
+            background: rgba(59, 130, 246, ${opacity});
             border-radius: 50%;
             pointer-events: none;
-            z-index: 9999;
-            transition: all 0.3s ease;
-            opacity: ${1 - i / trailLength};
+            z-index: 9998;
+            transform: translate(-50%, -50%);
         `;
         document.body.appendChild(dot);
-        trail.push(dot);
+        trail.push({
+            element: dot,
+            x: 0,
+            y: 0
+        });
     }
 
     let mouseX = 0;
     let mouseY = 0;
 
+    // Interactive elements selector
+    const interactiveSelectors = 'button, a, .nav-link, .project-card, .research-item, .glass-card, .skill-tag, .timeline-item, .contact-method, [role="button"], [onclick]';
+
+    // Mouse move handler
     document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
+
+        // Update main cursor immediately
+        mainCursor.style.left = mouseX + 'px';
+        mainCursor.style.top = mouseY + 'px';
+
+        // Check for interactive elements
+        const elementUnderCursor = document.elementFromPoint(e.clientX, e.clientY);
+        const interactiveElement = elementUnderCursor?.closest(interactiveSelectors);
+
+        if (interactiveElement && !isHovering) {
+            isHovering = true;
+            currentHoveredElement = interactiveElement;
+
+            // Scale up cursor on hover
+            mainCursor.style.transform = 'translate(-50%, -50%) scale(2)';
+            mainCursor.style.background = 'rgba(59, 130, 246, 0.5)';
+            mainCursor.style.border = '2px solid #3b82f6';
+
+        } else if (!interactiveElement && isHovering) {
+            isHovering = false;
+            currentHoveredElement = null;
+
+            // Reset cursor
+            mainCursor.style.transform = 'translate(-50%, -50%) scale(1)';
+            mainCursor.style.background = '#3b82f6';
+            mainCursor.style.border = 'none';
+        }
     });
 
+    // Animation loop for trail
     function animateTrail() {
-        let x = mouseX;
-        let y = mouseY;
+        for (let i = 0; i < trail.length; i++) {
+            const trailDot = trail[i];
 
-        trail.forEach((dot, index) => {
-            const nextDot = trail[index + 1] || trail[0];
-
-            dot.style.left = x - 2 + 'px';
-            dot.style.top = y - 2 + 'px';
-
-            if (nextDot) {
-                x += (parseFloat(nextDot.style.left) - x) * 0.3;
-                y += (parseFloat(nextDot.style.top) - y) * 0.3;
+            if (i === 0) {
+                // First dot follows mouse directly with delay
+                trailDot.x += (mouseX - trailDot.x) * 0.3;
+                trailDot.y += (mouseY - trailDot.y) * 0.3;
+            } else {
+                // Other dots follow the previous dot
+                const prevDot = trail[i - 1];
+                trailDot.x += (prevDot.x - trailDot.x) * 0.3;
+                trailDot.y += (prevDot.y - trailDot.y) * 0.3;
             }
-        });
+
+            trailDot.element.style.left = trailDot.x + 'px';
+            trailDot.element.style.top = trailDot.y + 'px';
+        }
 
         requestAnimationFrame(animateTrail);
     }
 
+    // Start animation
     animateTrail();
+
+    // Hide default cursor
+    const cursorStyles = document.createElement('style');
+    cursorStyles.textContent = `
+        * {
+            cursor: none !important;
+        }
+        
+        body {
+            cursor: none !important;
+        }
+        
+        /* Show default cursor on touch devices */
+        @media (hover: none) and (pointer: coarse) {
+            * {
+                cursor: auto !important;
+            }
+            body {
+                cursor: auto !important;
+            }
+            .main-cursor,
+            .mouse-trail-dot {
+                display: none !important;
+            }
+        }
+    `;
+    document.head.appendChild(cursorStyles);
 }
+
 
 // Keyboard Navigation
 function initializeKeyboardNavigation() {
@@ -818,13 +956,7 @@ function optimizePerformance() {
     };
 }
 
-// Initialize everything when DOM is ready
-document.addEventListener('DOMContentLoaded', function () {
-    showLoadingAnimation();
-    initializeMouseTrail();
-    initializeKeyboardNavigation();
-    optimizePerformance();
-});
+
 
 // CSS Animations (to be added to styles)
 const additionalStyles = `
