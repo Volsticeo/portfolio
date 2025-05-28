@@ -879,29 +879,30 @@ nav a:hover {
     transform: rotate(-45deg) translate(7px, -6px);
 }
 
-@media (max-width: 786px) {
+@media (max-width: 768px) {
     nav {
         position: fixed;
         top: 20px;
-        left: 20px; /* Changed from center alignment */
-        transform: none; /* Removed translateX(-50%) */
-        padding: 15px 20px;
-        width: auto;
-        background: rgba(15, 23, 42, 0.3);
+        left: 20px;
+        transform: none;
+        padding: 12px 16px; /* Reduced padding */
+        width: auto; /* Auto width to wrap content */
+        min-width: 60px; /* Minimum width for hamburger */
+        background: rgba(15, 23, 42, 0.9);
         backdrop-filter: blur(20px);
-        border: 1px solid rgba(59, 130, 246, 0.2);
-        border-radius: 50px;
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        border-radius: 25px; /* Smaller border radius */
         display: flex;
-        justify-content: flex-start; /* Changed from center */
+        justify-content: center;
         align-items: center;
     }
 
     nav:hover {
-        background: rgba(15, 23, 42, 0.3); /* Keep background on hover */
-        border: 1px solid rgba(59, 130, 246, 0.2); /* Keep border */
-        box-shadow: none;
-        transform: none; /* Remove transform */
-        backdrop-filter: blur(20px); /* Keep backdrop filter */
+        background: rgba(15, 23, 42, 0.9);
+        border: 1px solid rgba(59, 130, 246, 0.4);
+        box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
+        transform: none;
+        backdrop-filter: blur(20px);
     }
 
     .hamburger {
@@ -910,25 +911,35 @@ nav a:hover {
         z-index: 1001;
     }
 
+    .code-left-align {
+        text-align: left !important;
+    }
+
+    .code-left-align .code-line {
+        text-align: left !important;
+        justify-content: flex-start !important;
+    }
+
     nav ul {
         position: fixed;
         top: 80px;
-        left: 20px; /* Align with nav position */
-        transform: none; /* Remove center transform */
-        width: calc(100vw - 40px); /* Full width minus margins */
-        max-width: 400px;
+        left: 20px;
+        transform: none;
+        width: calc(100vw - 40px);
+        max-width: 320px; /* Reduced max width */
         background: rgba(15, 23, 42, 0.95);
         backdrop-filter: blur(20px);
-        border: 1px solid rgba(59, 130, 246, 0.2);
-        border-radius: 20px;
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        border-radius: 15px;
         flex-direction: column;
         gap: 0;
-        padding: 20px 0;
+        padding: 15px 0; /* Reduced padding */
         opacity: 0;
         visibility: hidden;
-        transform: translateY(-20px); /* Only vertical transform */
+        transform: translateY(-10px);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1000;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
     nav ul.active {
@@ -945,10 +956,11 @@ nav a:hover {
 
     nav a {
         display: block;
-        padding: 15px 20px;
-        margin: 5px 0;
-        border-radius: 15px;
+        padding: 12px 16px; /* Reduced padding */
+        margin: 2px 0; /* Reduced margin */
+        border-radius: 10px;
         width: 100%;
+        font-size: 0.95rem;
     }
 
     nav a:hover {
@@ -1044,13 +1056,16 @@ nav a:hover {
     }
 
     nav {
-        padding: 12px 15px;
-        width: calc(100% - 30px);
+        padding: 10px 14px; /* Even smaller padding for very small screens */
+        left: 15px;
+        top: 15px;
     }
 
     nav ul {
-        width: calc(100% - 30px);
-        top: 70px;
+        width: calc(100vw - 30px);
+        max-width: 280px;
+        top: 65px;
+        left: 15px;
     }
 
     nav a {
