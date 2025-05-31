@@ -30,6 +30,7 @@ function initializeNavigation() {
 }
 
 function showSection(sectionId) {
+    window.scrollTo(0, 0);
     const sections = document.querySelectorAll('.section');
     const targetSection = document.getElementById(sectionId);
 
@@ -158,6 +159,32 @@ function animateHomeSection() {
         }
     }, 800);
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const profilePicture = document.querySelector('.profile-picture');
+
+    if (profilePicture) {
+        profilePicture.addEventListener('click', function() {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+        });
+    }
+
+    // Project icons interaction
+    const projectIcons = document.querySelectorAll('.project-icon');
+
+    projectIcons.forEach(icon => {
+        icon.addEventListener('mouseenter', function() {
+            this.style.animationPlayState = 'running';
+        });
+
+        icon.addEventListener('mouseleave', function() {
+            this.style.animationPlayState = 'paused';
+        });
+    });
+});
 
 function animateSkillTags() {
     const skillTags = document.querySelectorAll('.skill-tag');
