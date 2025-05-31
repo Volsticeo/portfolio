@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sandipan Saha</title>
+      <link rel="icon" type="image/webp" href="assets_task_01jwhxq5yye3ytgbvvy2frma3m_1748653350_img_0.webp">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -31,25 +32,60 @@
     <section id="home" class="section active">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        <span class="greeting">Hello, I'm</span>
-                        <span class="name">Sandipan Saha</span>
-                        <span class="role">Software Engineer</span>
-                    </h1>
-                    <p class="hero-description">
-                        Crafting innovative digital solutions with cutting-edge technologies.
-                        Passionate about creating seamless user experiences and robust backend systems.
-                    </p>
-                    <div class="hero-buttons">
-                        <button class="btn-primary" onclick="scrollToSection('projects')">
-                            View My Work
-                        </button>
-                        <button class="btn-secondary" onclick="scrollToSection('contact')">
-                            Get In Touch
-                        </button>
+                <!-- Left Content - Profile + Text -->
+                <div class="hero-left">
+                    <!-- Enhanced Profile Picture -->
+                    <div class="hero-profile">
+                        <div class="profile-container">
+                            <div class="profile-picture">
+                                <!-- Animated Border Rings -->
+                                <div class="profile-ring"></div>
+                                <div class="profile-ring-2"></div>
+                                <div class="profile-ring-3"></div>
+
+                                <!-- Profile Image -->
+                                <img src="_KAN4457.jpg" alt="Sandipan Saha" class="profile-img">
+
+                                <!-- Glow Effects -->
+                                <div class="profile-glow"></div>
+                                <div class="profile-inner-glow"></div>
+
+                                <!-- Hover Particles -->
+                                <div class="hover-particles">
+                                    <span class="particle"></span>
+                                    <span class="particle"></span>
+                                    <span class="particle"></span>
+                                    <span class="particle"></span>
+                                    <span class="particle"></span>
+                                    <span class="particle"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text Content -->
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            <span class="greeting">Hello, I'm</span>
+                            <span class="name">Sandipan Saha</span>
+                            <span class="role">Software Engineer</span>
+                        </h1>
+                        <p class="hero-description">
+                            Crafting innovative digital solutions with cutting-edge technologies.
+                            Passionate about creating seamless user experiences and robust backend systems.
+                        </p>
+                        <div class="hero-buttons">
+                            <button class="btn-primary" onclick="scrollToSection('projects')">
+                                View My Work
+                            </button>
+                            <button class="btn-secondary" onclick="scrollToSection('contact')">
+                                Get In Touch
+                            </button>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Right Content - Code Window -->
                 <div class="hero-visual">
                     <div class="code-window">
                         <div class="window-header">
@@ -79,8 +115,7 @@
                                     class="property">passion</span>: <span class="string">'Crafting seamless experiences that turn ideas into elegant, powerful apps.'</span>
                             </div>
                             <div class="code-line" style="text-align: left !important;">};</div>
-                        </div>
-                        <div class="code-content" style="text-align: left !important;">
+                            <div class="code-line" style="text-align: left !important;"></div>
                             <div class="code-line" style="text-align: left !important;"><span
                                     class="keyword">const</span> <span class="variable">producer</span> = {
                             </div>
@@ -96,12 +131,24 @@
                                     class="property">passion</span>: <span class="string">'Producing captivating music and delivering mixes that shine with crystal-clear precision.'</span>
                             </div>
                             <div class="code-line" style="text-align: left !important;">};</div>
+                            <div class="code-line" style="text-align: left !important;"></div>
+                            <div class="code-line" style="text-align: left !important;"><span
+                                    class="comment">// Ready to build something amazing?</span>
+                            </div>
+                            <div class="code-line" style="text-align: left !important;"><span
+                                    class="keyword">function</span> <span class="variable">createMagic</span>() {
+                            </div>
+                            <div class="code-line" style="text-align: left !important;">&nbsp;&nbsp;<span
+                                    class="keyword">return</span> <span class="string">'Let\'s collaborate!'</span>;
+                            </div>
+                            <div class="code-line" style="text-align: left !important;">}</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- About Section -->
     <section id="about" class="section">
@@ -113,6 +160,8 @@
                         <h3>Who I Am</h3>
                         <p>I tackle tech troubles like brain teasers, solving them with speed and a spark of ingenuity.
                             From critical thinking to cool-headed fixes — whether it's debugging code or mixing sound — I turn chaos into clean code, crisp audio, and challenges into chances.</p>
+
+                        <br>
 
                         <h3>What I Do</h3>
                         <p>I specialize in full-stack development and OpenCV, crafting elegant, scalable solutions with modern JavaScript frameworks, cloud-native technologies, and smart IoT integrations — all grounded in clean, purposeful code.
@@ -302,7 +351,16 @@
                 <div class="project-card glass-card">
                     <div class="project-image">
                         <div class="project-placeholder">
-                            <div class="project-icon">📚</div>
+                            <div class="project-icon-container">
+                                <div class="project-icon animated-icon library-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor"
+                                              stroke-width="2"/>
+                                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                                              stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="project-content">
@@ -324,7 +382,17 @@
                 <div class="project-card glass-card">
                     <div class="project-image">
                         <div class="project-placeholder">
-                            <div class="project-icon">🖖</div>
+                            <div class="project-icon-container">
+                                <div class="project-icon animated-icon gesture-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M18 11V6a2 2 0 0 0-4 0v5" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M14 10V4a2 2 0 0 0-4 0v6" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M10 10.5V6a2 2 0 0 0-4 0v4.5" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M18 11c0 7-9 11-9 11s-9-4-9-11v-1a2 2 0 0 1 4 0v-1"
+                                              stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="project-content">
@@ -346,7 +414,14 @@
                 <div class="project-card glass-card">
                     <div class="project-image">
                         <div class="project-placeholder">
-                            <div class="project-icon">⚡</div>
+                            <div class="project-icon-container">
+                                <div class="project-icon animated-icon energy-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" stroke="currentColor"
+                                                 stroke-width="2" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="project-content">
@@ -367,7 +442,16 @@
                 <div class="project-card glass-card">
                     <div class="project-image">
                         <div class="project-placeholder">
-                            <div class="project-icon">⌨️</div>
+                            <div class="project-icon-container">
+                                <div class="project-icon animated-icon keyboard-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor"
+                                              stroke-width="2"/>
+                                        <path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M8 12h.01M12 12h.01M16 12h.01M7 16h10"
+                                              stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="project-content">
@@ -387,7 +471,13 @@
                 <div class="project-card glass-card">
                     <div class="project-image">
                         <div class="project-placeholder">
-                            <div class="project-icon">🏥</div>
+                            <div class="project-icon-container">
+                                <div class="project-icon animated-icon medical-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="project-content">
@@ -407,7 +497,14 @@
                 <div class="project-card glass-card">
                     <div class="project-image">
                         <div class="project-placeholder">
-                            <div class="project-icon">🎛️</div>
+                            <div class="project-icon-container">
+                                <div class="project-icon animated-icon media-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                        <polygon points="10,8 16,12 10,16" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="project-content">
@@ -427,7 +524,14 @@
                 <div class="project-card glass-card">
                     <div class="project-image">
                         <div class="project-placeholder">
-                            <div class="project-icon">🍗</div>
+                            <div class="project-icon-container">
+                                <div class="project-icon animated-icon restaurant-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3z"
+                                              stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="project-content">
@@ -452,17 +556,35 @@
 
     <!-- Research Section -->
     <section id="research" class="section">
-        <div class="container">
-            <h2 class="section-title">Research & Publications</h2>
-            <div class="research-content">
-                <div class="research-item glass-card">
+    <div class="container">
+        <h2 class="section-title">Research & Publications</h2>
+        <div class="research-content">
+            <div class="research-item glass-card">
+                <div class="book-cover-container">
+                    <div class="book-cover">
+                        <img src="Interface.webp" alt="Book Cover" class="book-image">
+                        <div class="book-spine"></div>
+                    </div>
+                </div>
+
+                <div class="research-content-wrapper">
                     <div class="research-header">
                         <h3>Machine Learning in Industry IoT (IIoT)</h3>
                         <span class="research-date">2024</span>
                     </div>
                     <p class="research-abstract">
-                        This chapter discusses the revolutionary incorporation of machine learning (ML) with industrial loT. Beginning by defining lloT, history, architecture, and applications. Further, exploring machine learning (ML), looking at its several forms.
-                        Before exploring the potential of using ML models inside IloT, data gathering challenges are addressed. With its features, data collecting, monitoring, and perceptive analytical techniques, predictive maintenance, a standout benefit, takes center stage. This integration requires data security, which is assessed taking into account cybersecurity risks, Big Data problems, data management, and retrieval. The chapter then continues on to demonstrate how ML improves lloT security. This chapter also projects future developments and trends, illustrating an industrial environment driven by technology. The final section of the chapter examines the industry's projected future for machine learning, along with ethical concerns and projections related to new technology.
+                        This chapter discusses the revolutionary incorporation of machine learning (ML) with
+                        industrial IoT. Beginning by defining IIoT, history, architecture, and applications.
+                        Further, exploring machine learning (ML), looking at its several forms.
+                        Before exploring the potential of using ML models inside IIoT, data gathering challenges are
+                        addressed. With its features, data collecting, monitoring, and perceptive analytical
+                        techniques, predictive maintenance, a standout benefit, takes center stage. This integration
+                        requires data security, which is assessed taking into account cybersecurity risks, Big Data
+                        problems, data management, and retrieval. The chapter then continues on to demonstrate how
+                        ML improves IIoT security. This chapter also projects future developments and trends,
+                        illustrating an industrial environment driven by technology. The final section of the
+                        chapter examines the industry's projected future for machine learning, along with ethical
+                        concerns and projections related to new technology.
                     </p>
                     <div class="research-details">
                         <div class="research-tags">
@@ -470,18 +592,38 @@
                             <span>IIOT</span>
                             <span>Optimization</span>
                         </div>
-                        <a href="https://www.igi-global.com/chapter/machine-learning-in-industry-iot-iiot/350925" class="research-link">Read Book</a>
+                        <a href="https://www.igi-global.com/chapter/machine-learning-in-industry-iot-iiot/350925"
+                           class="research-link">Read Book</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="research-item glass-card">
+                <div class="book-cover-container">
+                    <div class="book-cover">
+                        <img src="ML%20IIOT.webp" alt="Book Cover" class="book-image">
+                        <div class="book-spine"></div>
                     </div>
                 </div>
 
-                <div class="research-item glass-card">
+                <div class="research-content-wrapper">
                     <div class="research-header">
                         <h3>Interfacing of Actuators and Sensors</h3>
                         <span class="research-date">2023</span>
                     </div>
                     <p class="research-abstract">
-                        Actuators and sensors are simple and very sensitive components that create a broad impact and importance on industrial system needs. This chapter proposed various types of actuators and sensor models with their working capabilities and applications. In this chapter, the authors give a thorough review of the sensor and actuators and where these models are implemented in various real contexts of mechanical parts of the industry, electrical and electronic circuits, and other essential areas. Here the authors broadly covered optical, acoustic, chemical, and thermal sensors, as well as different types of actuators such as Pneumatic, hydraulic, motor-based, and electro-mechanical actuators, and examines the several actuator and sensor technologies and the range of applications for each. Also covered is the possible functions and its implementations.
-                        Finally, the authors conclude with some real-world examples of how actuators and sensors are used in various applications.
+                        Actuators and sensors are simple and very sensitive components that create a broad impact
+                        and importance on industrial system needs. This chapter proposed various types of actuators
+                        and sensor models with their working capabilities and applications. In this chapter, the
+                        authors give a thorough review of the sensor and actuators and where these models are
+                        implemented in various real contexts of mechanical parts of the industry, electrical and
+                        electronic circuits, and other essential areas. Here the authors broadly covered optical,
+                        acoustic, chemical, and thermal sensors, as well as different types of actuators such as
+                        Pneumatic, hydraulic, motor-based, and electro-mechanical actuators, and examines the
+                        several actuator and sensor technologies and the range of applications for each. Also
+                        covered is the possible functions and its implementations.
+                        Finally, the authors conclude with some real-world examples of how actuators and sensors are
+                        used in various applications.
                     </p>
                     <div class="research-details">
                         <div class="research-tags">
@@ -489,13 +631,14 @@
                             <span>Actuators</span>
                             <span>IoT</span>
                         </div>
-                        <a href="https://www.igi-global.com/chapter/interfacing-of-actuators-and-sensors/328504" class="research-link">Read Paper</a>
+                        <a href="https://www.igi-global.com/chapter/interfacing-of-actuators-and-sensors/328504"
+                           class="research-link">Read Paper</a>
                     </div>
                 </div>
-
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Contact Section -->
     <section id="contact" class="section">
