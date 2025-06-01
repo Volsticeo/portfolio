@@ -1190,7 +1190,7 @@ function handleTouch(e) {
         const touchY = touch.clientY;
 
         // Create particles for each touch point
-        if (Math.random() < 0.4) { // 40% chance (higher than mouse for better mobile experience)
+        if (Math.random() < 0.3) { // 40% chance (higher than mouse for better mobile experience)
             const particleCount = Math.floor(Math.random() * 3) + 2; // 2-4 particles
 
             for (let j = 0; j < particleCount; j++) {
@@ -1221,7 +1221,7 @@ function handleTouchEnd(e) {
 }
 
 function createTouchBurst(x, y) {
-    const burstCount = Math.floor(Math.random() * 4) + 3; // 3-6 particles for burst
+    const burstCount = Math.floor(Math.random() * 4) + 2; // 3-6 particles for burst
 
     for (let i = 0; i < burstCount; i++) {
         const angle = (360 / burstCount) * i;
@@ -1261,7 +1261,7 @@ function createTouchParticle(x, y, isBurst = false, burstDirection = null) {
     particle.className = `floating-particle interactive-particle shape-${randomShape}`;
 
     // Slightly larger particles for touch (easier to see)
-    const size = Math.random() * 6 + 4; // 4-10px
+    const size = Math.random() * 6 + 2; // 4-10px
     particle.style.width = size + 'px';
     particle.style.height = size + 'px';
     particle.style.background = randomColor;
@@ -1329,8 +1329,8 @@ function createLongPressEffect(x, y) {
     // Create a special long-press particle
     const particle = document.createElement('div');
     particle.className = 'floating-particle interactive-particle shape-circle';
-    particle.style.width = '12px';
-    particle.style.height = '12px';
+    particle.style.width = '10px';
+    particle.style.height = '10px';
     particle.style.background = 'linear-gradient(45deg, #ff6b6b, #feca57)';
     particle.style.left = x + 'px';
     particle.style.top = y + 'px';
