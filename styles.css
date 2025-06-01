@@ -140,6 +140,18 @@ nav a:hover {
     transform: translateY(-2px);
 }
 
+.contact-icon svg {
+    width: 24px;
+    height: 24px;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.contact-method:hover .contact-icon svg {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
 /* Glass Card Effect */
 .glass-card {
     background: rgba(255, 255, 255, 0.03);
