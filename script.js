@@ -857,7 +857,7 @@ function initializeContactForm() {
     }
 }
 
-function handleFormSubmission(form) {
+async function handleFormSubmission(form) {
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
 
@@ -866,19 +866,31 @@ function handleFormSubmission(form) {
     submitBtn.disabled = true;
     submitBtn.style.opacity = '0.7';
 
-    // Simulate form submission (replace with actual form handling)
-    setTimeout(() => {
-        // Show success message
-        showNotification('Message sent successfully!', 'success');
+    const formData = new FormData(form);
 
-        // Reset form
-        form.reset();
+    try {
+        const response = await fetch('https://formspree.io/f/mdkzkggp', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
 
+        if (response.ok) {
+            showNotification('Message sent successfully!', 'success');
+            form.reset();
+        } else {
+            throw new Error('Form submission failed');
+        }
+    } catch (error) {
+        showNotification('Failed to send message. Please try again.', 'error');
+    } finally {
         // Reset button
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
         submitBtn.style.opacity = '1';
-    }, 2000);
+    }
 }
 
 function showNotification(message, type = 'info') {
