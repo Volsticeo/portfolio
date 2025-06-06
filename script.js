@@ -7,9 +7,204 @@ document.addEventListener('DOMContentLoaded', function () {
     initializeTypewriterEffect();
     initializeMouseTrail();
     initializeSectionSnapping();
+    initializeScrollAnimations();
     setTimeout(addContinuousAnimations, 2000);
-
 });
+
+// Enhanced Scroll-Based Animations
+function initializeScrollAnimations() {
+    console.log('Initializing scroll animations...');
+
+    // Create intersection observer for scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -10% 0px'
+    };
+
+    const animationObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target;
+
+                // Add animation class based on element type
+                if (element.classList.contains('animate-section')) {
+                    animateSection(element);
+                } else if (element.classList.contains('animate-element')) {
+                    animateElement(element);
+                }
+
+                // Stop observing once animated
+                animationObserver.unobserve(element);
+            }
+        });
+    }, observerOptions);
+
+    // Observe all sections and elements
+    document.querySelectorAll('.animate-section').forEach(section => {
+        animationObserver.observe(section);
+    });
+
+    document.querySelectorAll('.animate-element').forEach(element => {
+        animationObserver.observe(element);
+    });
+}
+
+function animateSection(section) {
+    const sectionId = section.id;
+    console.log(`Animating section: ${sectionId}`);
+
+    // Add base animation class
+    section.classList.add('section-animated');
+
+    // Trigger specific section animations
+    switch (sectionId) {
+        case 'about':
+            animateAboutSection(section);
+            break;
+        case 'experience':
+            animateExperienceSection(section);
+            break;
+        case 'projects':
+            animateProjectsSection(section);
+            break;
+        case 'research':
+            animateResearchSection(section);
+            break;
+        case 'contact':
+            animateContactSection(section);
+            break;
+        case 'footer':
+            animateFooterSection(section);
+            break;
+    }
+}
+
+function animateElement(element) {
+    // Add staggered animation delay based on element position
+    const elements = Array.from(element.parentNode.querySelectorAll('.animate-element'));
+    const index = elements.indexOf(element);
+
+    setTimeout(() => {
+        element.classList.add('element-animated');
+
+        // Special animations for specific element types
+        if (element.classList.contains('skill-tag')) {
+            element.style.animationDelay = `${index * 0.1}s`;
+            element.classList.add('bounce-in');
+        } else if (element.classList.contains('timeline-item')) {
+            element.style.animationDelay = `${index * 0.3}s`;
+            element.classList.add('slide-in-left');
+        } else if (element.classList.contains('project-card')) {
+            element.style.animationDelay = `${index * 0.2}s`;
+            element.classList.add('fade-in-up');
+        } else if (element.classList.contains('contact-method')) {
+            element.style.animationDelay = `${index * 0.15}s`;
+            element.classList.add('slide-in-right');
+        } else {
+            element.classList.add('fade-in-up');
+        }
+    }, index * 100);
+}
+
+function animateAboutSection(section) {
+    const skillTags = section.querySelectorAll('.skill-tag');
+
+    skillTags.forEach((tag, index) => {
+        setTimeout(() => {
+            tag.style.transform = 'translateY(0) scale(1)';
+            tag.style.opacity = '1';
+            tag.classList.add('skill-bounce');
+        }, index * 100);
+    });
+}
+
+function animateExperienceSection(section) {
+    const timelineItems = section.querySelectorAll('.timeline-item');
+
+    timelineItems.forEach((item, index) => {
+        setTimeout(() => {
+            item.style.transform = 'translateX(0)';
+            item.style.opacity = '1';
+
+            const dot = item.querySelector('.timeline-dot');
+            if (dot) {
+                setTimeout(() => {
+                    dot.style.transform = 'scale(1)';
+                    dot.classList.add('pulse-animation');
+                }, 200);
+            }
+        }, index * 300);
+    });
+}
+
+function animateProjectsSection(section) {
+    const projectCards = section.querySelectorAll('.project-card');
+
+    projectCards.forEach((card, index) => {
+        setTimeout(() => {
+            card.style.transform = 'translateY(0) scale(1)';
+            card.style.opacity = '1';
+            card.classList.add('project-hover-ready');
+        }, index * 200);
+    });
+}
+
+function animateResearchSection(section) {
+    const researchItems = section.querySelectorAll('.research-item');
+
+    researchItems.forEach((item, index) => {
+        setTimeout(() => {
+            item.style.transform = 'translateY(0)';
+            item.style.opacity = '1';
+
+            const tags = item.querySelectorAll('.research-tags span');
+            tags.forEach((tag, tagIndex) => {
+                setTimeout(() => {
+                    tag.style.transform = 'scale(1)';
+                    tag.style.opacity = '1';
+                }, tagIndex * 100);
+            });
+        }, index * 400);
+    });
+}
+
+function animateContactSection(section) {
+    const contactMethods = section.querySelectorAll('.contact-method');
+    const formGroups = section.querySelectorAll('.form-group');
+
+    contactMethods.forEach((method, index) => {
+        setTimeout(() => {
+            method.style.transform = 'translateX(0)';
+            method.style.opacity = '1';
+        }, index * 150);
+    });
+
+    formGroups.forEach((group, index) => {
+        setTimeout(() => {
+            group.style.transform = 'translateY(0)';
+            group.style.opacity = '1';
+        }, 600 + (index * 100));
+    });
+}
+
+function animateFooterSection(section) {
+    const footerElements = section.querySelectorAll('.footer-brand, .footer-column, .footer-copyright, .footer-social');
+
+    footerElements.forEach((element, index) => {
+        setTimeout(() => {
+            element.style.transform = 'translateY(0)';
+            element.style.opacity = '1';
+        }, index * 200);
+    });
+
+    // Animate floating elements
+    const floatingElements = section.querySelectorAll('.floating-element');
+    floatingElements.forEach((element, index) => {
+        setTimeout(() => {
+            element.classList.add('float-animation');
+        }, 1000 + (index * 300));
+    });
+}
 
 function removeForcedHiding() {
     // Remove the existing style that's hiding everything
@@ -857,7 +1052,7 @@ function initializeContactForm() {
     }
 }
 
-async function handleFormSubmission(form) {
+function handleFormSubmission(form) {
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
 
@@ -866,31 +1061,19 @@ async function handleFormSubmission(form) {
     submitBtn.disabled = true;
     submitBtn.style.opacity = '0.7';
 
-    const formData = new FormData(form);
+    // Simulate form submission (replace with actual form handling)
+    setTimeout(() => {
+        // Show success message
+        showNotification('Message sent successfully!', 'success');
 
-    try {
-        const response = await fetch('https://formspree.io/f/mdkzkggp', {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
-        });
+        // Reset form
+        form.reset();
 
-        if (response.ok) {
-            showNotification('Message sent successfully!', 'success');
-            form.reset();
-        } else {
-            throw new Error('Form submission failed');
-        }
-    } catch (error) {
-        showNotification('Failed to send message. Please try again.', 'error');
-    } finally {
         // Reset button
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
         submitBtn.style.opacity = '1';
-    }
+    }, 2000);
 }
 
 function showNotification(message, type = 'info') {
@@ -1202,7 +1385,7 @@ function handleTouch(e) {
         const touchY = touch.clientY;
 
         // Create particles for each touch point
-        if (Math.random() < 0.3) { // 40% chance (higher than mouse for better mobile experience)
+        if (Math.random() < 0.4) { // 40% chance (higher than mouse for better mobile experience)
             const particleCount = Math.floor(Math.random() * 3) + 2; // 2-4 particles
 
             for (let j = 0; j < particleCount; j++) {
@@ -1233,7 +1416,7 @@ function handleTouchEnd(e) {
 }
 
 function createTouchBurst(x, y) {
-    const burstCount = Math.floor(Math.random() * 4) + 2; // 3-6 particles for burst
+    const burstCount = Math.floor(Math.random() * 4) + 3; // 3-6 particles for burst
 
     for (let i = 0; i < burstCount; i++) {
         const angle = (360 / burstCount) * i;
@@ -1273,7 +1456,7 @@ function createTouchParticle(x, y, isBurst = false, burstDirection = null) {
     particle.className = `floating-particle interactive-particle shape-${randomShape}`;
 
     // Slightly larger particles for touch (easier to see)
-    const size = Math.random() * 6 + 2; // 4-10px
+    const size = Math.random() * 6 + 4; // 4-10px
     particle.style.width = size + 'px';
     particle.style.height = size + 'px';
     particle.style.background = randomColor;
@@ -1341,8 +1524,8 @@ function createLongPressEffect(x, y) {
     // Create a special long-press particle
     const particle = document.createElement('div');
     particle.className = 'floating-particle interactive-particle shape-circle';
-    particle.style.width = '10px';
-    particle.style.height = '10px';
+    particle.style.width = '12px';
+    particle.style.height = '12px';
     particle.style.background = 'linear-gradient(45deg, #ff6b6b, #feca57)';
     particle.style.left = x + 'px';
     particle.style.top = y + 'px';
@@ -1844,7 +2027,7 @@ function initializeMouseTrail() {
 
     // Update colors when section changes
     function updateTrailColors() {
-        const currentColor = getCurrentSectionColor();
+        const currentColor =  getCurrentSectionColor();
         mainCursor.style.background = currentColor;
         mainCursor.style.boxShadow = `0 0 20px ${currentColor}40`;
 
